@@ -43,10 +43,13 @@ public class Teacher extends Person {
     }
 
     public String introduceWith(Student student) {
+
+        String introduceString = super.introduce() + " I am a Teacher. ";
+
         if(!klassLinkedList.stream().filter(klass -> klass.getNumber()==student.getKlass().getNumber()).collect(Collectors.toList()).isEmpty() ) {
-            return String.format(super.introduce() + " I am a Teacher. I teach %s.", student.getName());
+            return String.format(introduceString + "I teach %s.", student.getName());
         }
-        return String.format(super.introduce() + " I am a Teacher. I don't teach %s.", student.getName());
+        return String.format(introduceString + "I don't teach %s.", student.getName());
     }
 
     public LinkedList<Klass> getClasses() {

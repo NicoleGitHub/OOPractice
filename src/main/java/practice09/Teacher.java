@@ -40,7 +40,7 @@ public class Teacher extends Person {
     }
 
     public String introduceWith(Student student) {
-        if(!klassLinkedList.stream().filter(klass -> klass.getNumber()==student.getKlass().getNumber()).collect(Collectors.toList()).isEmpty() ) {
+        if(isTeaching(student)) {
             return String.format(super.introduce() + " I am a Teacher. I teach %s.", student.getName());
         }
         return String.format(super.introduce() + " I am a Teacher. I don't teach %s.", student.getName());
